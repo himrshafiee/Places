@@ -1,0 +1,9 @@
+//
+//  Localizable.strings
+//  Places
+//
+//  Created by Amin Shafiee on 19/06/2026.
+//
+
+"splashViewTitle" = "Places";
+"splashAccessibilityLabel" = "Places. Loading.";

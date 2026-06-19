@@ -29,13 +29,13 @@ struct SplashView: View {
                     .foregroundStyle(Color(.SplashScreen.logo))
                     .accessibilityHidden(true)
 
-                Text("Places")
+                Text(String.localized(.splashViewTitle))
                     .font(.largeTitle.weight(.semibold))
                     .foregroundStyle(Color(.SplashScreen.title))
             }
         }
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Places. Loading.")
+        .accessibilityLabel(String.localized(.splashAccessibilityLabel))
         .accessibilityAddTraits(.isHeader)
         .task {
             try? await Task.sleep(for: duration)
