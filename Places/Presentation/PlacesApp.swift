@@ -15,3 +15,9 @@ struct PlacesApp: App {
         }
     }
 }
+
+struct ContentView: View {
+    var body: some View {
+        SplashView(onFinished: {})
+    }
+}
