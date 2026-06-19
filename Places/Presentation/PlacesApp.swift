@@ -9,15 +9,26 @@ import SwiftUI
 
 @main
 struct PlacesApp: App {
+    @State private var appRouter: AppRouter = AppContainer.shared.appRouter
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(appRouter: appRouter)
         }
     }
 }
 
 struct ContentView: View {
+    @Bindable var appRouter: AppRouter
+
     var body: some View {
-        SplashView(onFinished: {})
+        switch appRouter.currentFlow {
+        case .splashScreen:
+            SplashView(onFinished: appRouter.finishSplash)
+                .transition(.opacity)
+        case .locations:
+            Rectangle()
+                .foregroundStyle(.blue)
+        }
     }
 }
