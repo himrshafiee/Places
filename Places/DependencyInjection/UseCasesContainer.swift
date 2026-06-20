@@ -12,12 +12,35 @@ import UIKit
 final class UseCasesContainer {
 
     private let repositoriesContainer: RepositoriesContainer
+    private let urlOpener: URLOpening
 
-    init(repositoriesContainer: RepositoriesContainer) {
+    init(
+        repositoriesContainer: RepositoriesContainer,
+        urlOpener: URLOpening? = nil
+    ) {
         self.repositoriesContainer = repositoriesContainer
+        self.urlOpener = urlOpener ??  UIApplicationURLOpener()
     }
-    
+
     lazy var fetchLocationsUseCase: FetchLocationsUseCaseProtocol = {
         FetchLocationsUseCase(networkRepository: repositoriesContainer.networkLocationsRepository)
     }()
+
+    lazy var openLocationInWikipediaUseCase: OpenLocationInWikipediaUseCaseProtocol = {
+        OpenLocationInWikipediaUseCase(opener: urlOpener)
+    }()
 }
+
+// MARK: - Opener
+
+@MainActor
+final class UIApplicationURLOpener: URLOpening {
+    func canOpen(_ url: URL) -> Bool {
+        UIApplication.shared.canOpenURL(url)
+    }
+
+    func open(_ url: URL) async -> Bool {
+        await UIApplication.shared.open(url, options: [:])
+    }
+}
+

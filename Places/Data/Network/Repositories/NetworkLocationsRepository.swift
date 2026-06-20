@@ -43,7 +43,7 @@ final class NetworkLocationsRepository: NetworkLocationsRepositoryProtocol {
             StatusCodeValidator(),
             NonEmptyBodyValidator()
         ]
-
+        
         return try await requestManager.perform(
             request: request,
             parser: DecodableParser<[Location]>(keyPath: "locations"),

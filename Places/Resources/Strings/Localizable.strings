@@ -5,6 +5,11 @@
 //  Created by Amin Shafiee on 19/06/2026.
 //
 
+"tryAgain" = "Try again";
+"ok" = "OK";
+"generalErrorTitle" = "Something went wrong";
+"generalErrorMessage" = "Something went wrong, please try again!";
+
 "splashViewTitle" = "Places";
 "splashAccessibilityLabel" = "Places. Loading.";
 
@@ -12,7 +17,9 @@
 "locationsListLoadingText" = "Loading locations...";
 "locationsListLoadingTextAccessibilityLabel" = "Loading locations";
 "locationsListEmptyTitle" = "No locations";
-"locationListEmptyDescription" = "The server returned an empty list. Pull to refresh.";
-"locationListError" = "Couldn't load locations";
-"tryAgain" = "Try again";
+"locationsListEmptyDescription" = "The server returned an empty list. Pull to refresh.";
+"locationsListError" = "Couldn't load locations";
 "locationsListRowViewAccessibilityHint" = "Opens this location in Wikipedia's Places tab.";
+"locationsListWikipediaErrorTitle" = "Wikipedia is not installed";
+"locationsListWikipediaErrorMessage" = "Install the Wikipedia app from the App Store to open locations in its Places tab.";
+"invalidCoordinateErrorMessage" = "Coordinates %d, %d are out of range. Latitude must be between −90 and 90, longitude between −180 and 180.";

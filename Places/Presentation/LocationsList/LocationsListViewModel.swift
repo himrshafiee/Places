@@ -22,15 +22,31 @@ final class LocationsListViewModel {
     }
 
     private(set) var state: ViewState = .loading
+    private(set) var errorAlertMessage: String?
+
+    var wikipediaMissingAlertVisible: Bool = false
+    var errorAlertVisible: Bool = false {
+        didSet {
+            if !errorAlertVisible { errorAlertMessage = nil }
+        }
+    }
+
+    private func showErrorAlert(_ message: String) {
+        errorAlertMessage = message
+        errorAlertVisible = true
+    }
 
     // MARK: - Dependencies
 
     private let fetchLocationsUseCase: FetchLocationsUseCaseProtocol
-
+    private let openLocationUseCase: OpenLocationInWikipediaUseCaseProtocol
+    
     init(
-        fetchLocationsUseCase: FetchLocationsUseCaseProtocol
+        fetchLocationsUseCase: FetchLocationsUseCaseProtocol,
+        openLocationUseCase: OpenLocationInWikipediaUseCaseProtocol
     ) {
         self.fetchLocationsUseCase = fetchLocationsUseCase
+        self.openLocationUseCase = openLocationUseCase
     }
 
     func load() async {
@@ -46,6 +62,23 @@ final class LocationsListViewModel {
     }
 
     func select(_ location: Location) async {
+        await openInWikipedia(location: location)
+    }
+
+
+    // MARK: - Private functions
+
+    private func openInWikipedia(location: Location) async {
+        do {
+            let opened = try await openLocationUseCase.execute(location: location)
+            if !opened {
+                wikipediaMissingAlertVisible = true
+            }
+        } catch let OpenLocationInWikipediaError.invalidCoordinate(lat, lon) {
+            showErrorAlert(String(format: .localized(.invalidCoordinateErrorMessage), arguments: [lat, lon]))
+        } catch {
+            showErrorAlert(error.localizedDescription)
+        }
     }
 
 }

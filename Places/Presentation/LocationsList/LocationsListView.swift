@@ -11,6 +11,8 @@ struct LocationsListView: View {
 
     @State private var viewModel: LocationsListViewModel
     
+    // MARK: Private properties
+    
     private let router: LocationsRouter
     private let viewModelsContainer: ViewModelsContainer
 
@@ -44,6 +46,22 @@ private struct LocationsListContent: View {
                 .navigationTitle(String.localized(.locationsListNavigationTitle))
                 .refreshable { await viewModel.load() }
                 .task { await viewModel.load() }
+                .alert(
+                    String.localized(.locationsListWikipediaErrorTitle),
+                    isPresented: $viewModel.wikipediaMissingAlertVisible
+                ) {
+                    Button(String.localized(.ok), role: .cancel) { }
+                } message: {
+                    Text(String.localized(.locationsListWikipediaErrorMessage))
+                }
+                .alert(
+                    String.localized(.generalErrorTitle),
+                    isPresented: $viewModel.errorAlertVisible
+                ) {
+                    Button(String.localized(.ok), role: .cancel) { }
+                } message: {
+                    Text(viewModel.errorAlertMessage ?? String.localized(.generalErrorMessage))
+                }
         }
     }
 
@@ -62,11 +80,19 @@ private struct LocationsListContent: View {
             .accessibilityLabel(String.localized(.locationsListLoadingTextAccessibilityLabel))
 
         case .loaded(let locations) where locations.isEmpty:
-            ContentUnavailableView(
-                String.localized(.locationsListEmptyTitle),
-                systemImage: "mappin.slash",
-                description: Text(String.localized(.locationListEmptyDescription))
-            )
+            ContentUnavailableView {
+                Label(String.localized(.locationsListEmptyTitle), systemImage: "mappin.slash")
+            } description: {
+                Text(String.localized(.locationsListEmptyDescription))
+            } actions: {
+                Button(String.localized(.tryAgain)) {
+                    Task { await viewModel.load() }
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(String.localized(.tryAgain))
+                .accessibilityAddTraits(.isButton)
+            }
             
         case .loaded(let locations):
             List(locations, id: \.self) { location in
@@ -78,7 +104,7 @@ private struct LocationsListContent: View {
 
         case .failed(let message):
             ContentUnavailableView {
-                Label(String.localized(.locationListError), systemImage: "exclamationmark.triangle")
+                Label(String.localized(.locationsListError), systemImage: "exclamationmark.triangle")
             } description: {
                 Text(message)
             } actions: {

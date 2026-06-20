@@ -13,6 +13,9 @@ extension String {
 
         // MARK: General
         case tryAgain
+        case ok
+        case generalErrorTitle
+        case generalErrorMessage
         
         // MARK: SplashView
         case splashViewTitle
@@ -23,9 +26,13 @@ extension String {
         case locationsListLoadingText
         case locationsListLoadingTextAccessibilityLabel
         case locationsListEmptyTitle
-        case locationListEmptyDescription
-        case locationListError
+        case locationsListEmptyDescription
+        case locationsListError
         case locationsListRowViewAccessibilityHint
+        case locationsListWikipediaErrorTitle
+        case locationsListWikipediaErrorMessage
+        case invalidCoordinateErrorMessage
+        
     }
 
     /// Returns the localized string for the given key.

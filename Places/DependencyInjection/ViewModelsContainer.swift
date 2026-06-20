@@ -18,7 +18,8 @@ final class ViewModelsContainer {
     
     func makeLocationsListViewModel() -> LocationsListViewModel {
         LocationsListViewModel(
-            fetchLocationsUseCase: useCasesContainer.fetchLocationsUseCase
+            fetchLocationsUseCase: useCasesContainer.fetchLocationsUseCase,
+            openLocationUseCase: useCasesContainer.openLocationInWikipediaUseCase
         )
     }
 }
