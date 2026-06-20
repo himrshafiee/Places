@@ -11,9 +11,21 @@ extension String {
     
     enum TranslationKey: String, CaseIterable {
 
-        // Splash
+        // MARK: General
+        case tryAgain
+        
+        // MARK: SplashView
         case splashViewTitle
         case splashAccessibilityLabel
+        
+        // MARK: LocationsList
+        case locationsListNavigationTitle
+        case locationsListLoadingText
+        case locationsListLoadingTextAccessibilityLabel
+        case locationsListEmptyTitle
+        case locationListEmptyDescription
+        case locationListError
+        case locationsListRowViewAccessibilityHint
     }
 
     /// Returns the localized string for the given key.

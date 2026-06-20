@@ -17,10 +17,13 @@ enum AppFlow: Equatable {
 @Observable
 @MainActor
 final class AppRouter {
+    
     var currentFlow: AppFlow
+    let locationsRouter: LocationsRouter
 
-    init(initialFlow: AppFlow = .splashScreen) {
+    init(initialFlow: AppFlow = .splashScreen, locationsRouter: LocationsRouter? = nil) {
         self.currentFlow = initialFlow
+        self.locationsRouter = locationsRouter ?? LocationsRouter()
     }
 
     func finishSplash() {

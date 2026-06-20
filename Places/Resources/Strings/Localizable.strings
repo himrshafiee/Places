@@ -7,3 +7,12 @@
 
 "splashViewTitle" = "Places";
 "splashAccessibilityLabel" = "Places. Loading.";
+
+"locationsListNavigationTitle" = "Places";
+"locationsListLoadingText" = "Loading locations...";
+"locationsListLoadingTextAccessibilityLabel" = "Loading locations";
+"locationsListEmptyTitle" = "No locations";
+"locationListEmptyDescription" = "The server returned an empty list. Pull to refresh.";
+"locationListError" = "Couldn't load locations";
+"tryAgain" = "Try again";
+"locationsListRowViewAccessibilityHint" = "Opens this location in Wikipedia's Places tab.";

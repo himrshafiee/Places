@@ -27,8 +27,10 @@ struct ContentView: View {
             SplashView(onFinished: appRouter.finishSplash)
                 .transition(.opacity)
         case .locations:
-            Rectangle()
-                .foregroundStyle(.blue)
+            LocationsListView(
+                router: appRouter.locationsRouter,
+                viewModelsContainer: AppContainer.shared.viewModels
+            )
         }
     }
 }

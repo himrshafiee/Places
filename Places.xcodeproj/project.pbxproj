@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B8A6AF1E2FE69E4400A807B1 /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = B8A6AF1D2FE69E4400A807B1 /* Modules */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B8A6ACA22FE5D81500A807B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -66,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A6AF1E2FE69E4400A807B1 /* Modules in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,7 @@
 				B8A6AC962FE5D81300A807B1 /* Places */,
 				B8A6ACA42FE5D81500A807B1 /* PlacesTests */,
 				B8A6ACAE2FE5D81500A807B1 /* PlacesUITests */,
+				B8A6AF1C2FE69E4400A807B1 /* Frameworks */,
 				B8A6AC952FE5D81300A807B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +121,13 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		B8A6AF1C2FE69E4400A807B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +148,7 @@
 			);
 			name = Places;
 			packageProductDependencies = (
+				B8A6AF1D2FE69E4400A807B1 /* Modules */,
 			);
 			productName = Places;
 			productReference = B8A6AC942FE5D81300A807B1 /* Places.app */;
@@ -650,6 +664,13 @@
 			relativePath = Modules/Modules;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8A6AF1D2FE69E4400A807B1 /* Modules */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Modules;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8A6AC8C2FE5D81300A807B1 /* Project object */;
 }
