@@ -27,6 +27,7 @@
 		B8A6AC942FE5D81300A807B1 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A6ACA12FE5D81500A807B1 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A6ACAB2FE5D81500A807B1 /* PlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A6AEE82FE691CA00A807B1 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +89,7 @@
 		B8A6AC8B2FE5D81300A807B1 = {
 			isa = PBXGroup;
 			children = (
+				B8A6AEE72FE691B500A807B1 /* Modules */,
 				B8A6AC962FE5D81300A807B1 /* Places */,
 				B8A6ACA42FE5D81500A807B1 /* PlacesTests */,
 				B8A6ACAE2FE5D81500A807B1 /* PlacesUITests */,
@@ -103,6 +105,14 @@
 				B8A6ACAB2FE5D81500A807B1 /* PlacesUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B8A6AEE72FE691B500A807B1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B8A6AEE82FE691CA00A807B1 /* Modules */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +218,9 @@
 			);
 			mainGroup = B8A6AC8B2FE5D81300A807B1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B8A6AEE42FE6911500A807B1 /* XCLocalSwiftPackageReference "Modules/Modules" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B8A6AC952FE5D81300A807B1 /* Products */;
 			projectDirPath = "";
@@ -630,6 +643,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B8A6AEE42FE6911500A807B1 /* XCLocalSwiftPackageReference "Modules/Modules" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/Modules;
+		};
+/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = B8A6AC8C2FE5D81300A807B1 /* Project object */;
 }
