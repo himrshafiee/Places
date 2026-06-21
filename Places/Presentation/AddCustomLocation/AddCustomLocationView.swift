@@ -77,7 +77,7 @@ private struct FormContent: View {
                         .frame(maxWidth: .infinity)
                         .foregroundStyle(.white)
                 }
-                .tint(Color(.primary))
+                .tint(Color(.main))
                 .buttonStyle(.borderedProminent)
                 .disabled(!viewModel.canSubmit)
                 .accessibilityHint(String.localized(.openInwikipediaButtonA11yHint))
