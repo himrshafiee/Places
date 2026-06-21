@@ -75,7 +75,7 @@ final class LocationsListViewModel {
                 wikipediaMissingAlertVisible = true
             }
         } catch let OpenLocationInWikipediaError.invalidCoordinate(lat, lon) {
-            showErrorAlert(String(format: .localized(.invalidCoordinateErrorMessage), arguments: [lat, lon]))
+            showErrorAlert(String(format: .localized(.invalidCoordinateErrorMessage), lat, lon))
         } catch {
             showErrorAlert(error.localizedDescription)
         }

@@ -44,8 +44,29 @@ private struct LocationsListContent: View {
         NavigationStack(path: $router.path) {
             content
                 .navigationTitle(String.localized(.locationsListNavigationTitle))
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            router.presentCustomLocation()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .accessibilityLabel("Open custom location")
+                        .accessibilityHint("Lets you enter coordinates and open them in Wikipedia.")
+                    }
+                }
                 .refreshable { await viewModel.load() }
                 .task { await viewModel.load() }
+                .sheet(isPresented: $router.isCustomLocationSheetPresented) {
+                    AddCustomLocationView(
+                        viewModelsContainer: viewModelsContainer,
+                        onOpened: { router.dismissCustomLocation() },
+                        onWikipediaMissing: {
+                            router.dismissCustomLocation()
+                            viewModel.wikipediaMissingAlertVisible = true
+                        }
+                    )
+                }
                 .alert(
                     String.localized(.locationsListWikipediaErrorTitle),
                     isPresented: $viewModel.wikipediaMissingAlertVisible

@@ -16,6 +16,7 @@ extension String {
         case ok
         case generalErrorTitle
         case generalErrorMessage
+        case cancel
         
         // MARK: SplashView
         case splashViewTitle
@@ -33,6 +34,22 @@ extension String {
         case locationsListWikipediaErrorMessage
         case invalidCoordinateErrorMessage
         
+        // MARK: AddCustomLocation
+        case addCustomLocationNavigationTitle
+        case addCustomLocationLatTextFieldLabel
+        case addCustomLocationLatTextFieldA11yLabel
+        case addCustomLocationLatTextFieldA11yHint
+        case addCustomLocationLonTextFieldLabel
+        case addCustomLocationLonTextFieldA11yLabel
+        case addCustomLocationLonTextFieldA11yHint
+        case addCustomLocationNameTextFieldLabel
+        case addCustomLocationNameTextFieldA11yLabel
+        case addCustomLocationFormHeader
+        case addCustomLocationFormFooter
+        case addCustomLocationFormError
+        case coordinateIsNotValid
+        case openInwikipediaButtonTitle
+        case openInwikipediaButtonA11yHint
     }
 
     /// Returns the localized string for the given key.

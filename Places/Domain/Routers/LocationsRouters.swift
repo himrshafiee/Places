@@ -16,7 +16,12 @@ import SwiftUI
 final class LocationsRouter {
     
     var path = NavigationPath()
+    
+    var isCustomLocationSheetPresented: Bool = false
 
+    func presentCustomLocation() { isCustomLocationSheetPresented = true }
+    func dismissCustomLocation() { isCustomLocationSheetPresented = false }
+    
     func goBack() {
         guard !path.isEmpty else { return }
         path.removeLast()

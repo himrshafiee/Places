@@ -5,14 +5,20 @@
 //  Created by Amin Shafiee on 19/06/2026.
 //
 
+// MARK: General
+
 "tryAgain" = "Try again";
 "ok" = "OK";
 "generalErrorTitle" = "Something went wrong";
 "generalErrorMessage" = "Something went wrong, please try again!";
+"cancel" = "Cancel";
+
+// MARK: SplashView
 
 "splashViewTitle" = "Places";
 "splashAccessibilityLabel" = "Places. Loading.";
 
+// MARK: LocationsList
 "locationsListNavigationTitle" = "Places";
 "locationsListLoadingText" = "Loading locations...";
 "locationsListLoadingTextAccessibilityLabel" = "Loading locations";
@@ -23,3 +29,21 @@
 "locationsListWikipediaErrorTitle" = "Wikipedia is not installed";
 "locationsListWikipediaErrorMessage" = "Install the Wikipedia app from the App Store to open locations in its Places tab.";
 "invalidCoordinateErrorMessage" = "Coordinates %d, %d are out of range. Latitude must be between −90 and 90, longitude between −180 and 180.";
+
+// MARK: AddCustomLocation
+
+"addCustomLocationLatTextFieldLabel" = "Latitude (−90 to 90)";
+"addCustomLocationLatTextFieldA11yLabel" = "Latitude";
+"addCustomLocationLatTextFieldA11yHint" = "Decimal degrees, between minus 90 and 90.";
+"addCustomLocationLonTextFieldLabel" = "Longitude (−180 to 180)";
+"addCustomLocationLonTextFieldA11yLabel" = "Longitude";
+"addCustomLocationLonTextFieldA11yHint" = "Decimal degrees, between minus 180 and 180.";
+"addCustomLocationNameTextFieldLabel" = "Name (optional)";
+"addCustomLocationNameTextFieldA11yLabel" = "Location name, optional";
+"addCustomLocationFormHeader" = "Coordinates";
+"addCustomLocationFormFooter" = "Tip: you can use a decimal point or a comma.";
+"addCustomLocationFormError" = "Validation error: %@";
+"coordinateIsNotValid" = "Enter a valid latitude (−90 to 90) and longitude (−180 to 180).";
+"openInwikipediaButtonTitle" = "Open in Wikipedia";
+"openInwikipediaButtonA11yHint" = "Opens the entered coordinates in Wikipedia's Places tab.";
+"addCustomLocationNavigationTitle" = "Custom location";

@@ -22,4 +22,15 @@ final class ViewModelsContainer {
             openLocationUseCase: useCasesContainer.openLocationInWikipediaUseCase
         )
     }
+    
+    func makeAddCustomLocationViewModel(
+        onOpened: @escaping @MainActor () -> Void,
+        onWikipediaMissing: @escaping @MainActor () -> Void
+    ) -> AddCustomLocationViewModel {
+        AddCustomLocationViewModel(
+            openLocationUseCase: useCasesContainer.openLocationInWikipediaUseCase,
+            onOpened: onOpened,
+            onWikipediaMissing: onWikipediaMissing
+        )
+    }
 }
