@@ -2,6 +2,11 @@
 
 An iOS app that lists locations and deep-links into a (modified) Wikipedia app's Places tab so the user can explore each one. Users can also enter custom coordinates and open them the same way.
 
+## Demo
+
+<img src="demo.gif" width="400" alt="demo">
+
+
 ## Features
 
 - Fetches a list of locations from a remote JSON endpoint.
