@@ -22,17 +22,30 @@ protocol OpenLocationInWikipediaUseCaseProtocol: Sendable {
     /// Open the supplied coordinate in the Wikipedia app's Places tab.
     /// - Returns: `true` if the system handed the URL to Wikipedia, `false` if
     ///   the Wikipedia app isn't installed (or `UIApplication.open` reported failure).
-    /// - Throws: `OpenLocationInWikipediaError.invalidCoordinate` if lat/lon are out of range.
+    /// - Throws: `OpenLocationInWikipediaError
     func execute(location: Location) async throws -> Bool
 
-    /// Whether the Wikipedia app appears to be installed. Used by views to
-    /// show a friendly "install Wikipedia" hint instead of silently failing.
+    /// Used to show a friendly "install Wikipedia" hint instead of silently failing.
     func isWikipediaInstalled() -> Bool
 }
 
-enum OpenLocationInWikipediaError: Error, Equatable {
+enum OpenLocationInWikipediaError: Error, Equatable, LocalizedError {
     case invalidCoordinate(latitude: Double, longitude: Double)
     case urlConstructionFailed
+    case wikipediaIsNotInstalled
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidCoordinate(let lat, let lon):
+            return String(format: .localized(.invalidCoordinateErrorMessage), lat, lon)
+
+        case .urlConstructionFailed:
+            return String.localized(.urlConstructionFailedErrorMessage)
+
+        case .wikipediaIsNotInstalled:
+            return String.localized(.wikipediaIsNotInstalledErrorMessage)
+        }
+    }
 }
 
 // MARK: - Implementation
@@ -54,9 +67,11 @@ final class OpenLocationInWikipediaUseCase: OpenLocationInWikipediaUseCaseProtoc
         guard let url = Self.makeWikipediaPlacesURL(latitude: location.latitude, longitude: location.longitude, name: location.name) else {
             throw OpenLocationInWikipediaError.urlConstructionFailed
         }
+        
+        guard isWikipediaInstalled() else {
+            throw OpenLocationInWikipediaError.wikipediaIsNotInstalled
+        }
 
-        // Even if canOpen returns false (Wikipedia not installed), still ask the system to open —
-        // the OS will show the App Store. But return the opener's result so callers can react.
         return await opener.open(url)
     }
 

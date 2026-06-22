@@ -28,7 +28,9 @@
 "locationsListRowViewAccessibilityHint" = "Opens this location in Wikipedia's Places tab.";
 "locationsListWikipediaErrorTitle" = "Wikipedia is not installed";
 "locationsListWikipediaErrorMessage" = "Install the Wikipedia app from the App Store to open locations in its Places tab.";
-"invalidCoordinateErrorMessage" = "Coordinates %d, %d are out of range. Latitude must be between −90 and 90, longitude between −180 and 180.";
+"invalidCoordinateErrorMessage" = "Coordinates %f, %f are out of range. Latitude must be between −90 and 90, longitude between −180 and 180.";
+"urlConstructionFailedErrorMessage" = "Failed to construct Wikipedia URL.";
+"wikipediaIsNotInstalledErrorMessage" =  "Wikipedia app is not installed.";
 
 // MARK: AddCustomLocation
 

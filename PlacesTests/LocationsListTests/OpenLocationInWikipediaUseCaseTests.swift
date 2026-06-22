@@ -100,9 +100,21 @@ struct OpenLocationInWikipediaUseCaseTests {
         }
         #expect(opener.openedURLs.isEmpty)
     }
-
+    
     // MARK: - isWikipediaInstalled
+    
+    @Test("Throws .wikipediaIsNotInstalled")
+    func throwsForWikipediaIsNotInstalled() async throws {
+        let (sut, opener) = makeSUT()
+        opener.canOpenURLResult = false
+        let location = Location(name: "Amsterdam", latitude: 52.36, longitude: 4.9)
 
+        await #expect(throws: OpenLocationInWikipediaError.wikipediaIsNotInstalled) {
+          _ = try await sut.execute(location: location)
+        }
+        #expect(opener.openedURLs.isEmpty)
+    }
+    
     @Test("Reports installed when opener canOpen returns true")
     func reportsInstalledWhenOpenerSaysYes() {
         let (sut, opener) = makeSUT()

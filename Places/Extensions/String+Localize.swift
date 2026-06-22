@@ -33,6 +33,9 @@ extension String {
         case locationsListWikipediaErrorTitle
         case locationsListWikipediaErrorMessage
         case invalidCoordinateErrorMessage
+        case urlConstructionFailedErrorMessage
+        case wikipediaIsNotInstalledErrorMessage
+        
         
         // MARK: AddCustomLocation
         case addCustomLocationNavigationTitle
